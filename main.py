@@ -1,5 +1,5 @@
 def main():
-    book_path = "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/frankenstein.txt"
+    book_path = "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/History.txt"
     text = get_book_text(book_path)
     print("Book Report")
     print(f"There are {word_count(text)} words found in this document")
