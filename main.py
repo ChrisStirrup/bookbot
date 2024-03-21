@@ -1,5 +1,13 @@
 def main():
-    book_path = "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/History.txt"
+    history = "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/History.txt"
+    shelly =  "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/frankenstein.txt"
+    book_path = input('Please enter a path to your .txt document: ')
+    if book_path == 'shelly' or book_path == '':
+        book_path = shelly
+    if book_path == 'history':
+        book_path = history
+    
+            
     text = get_book_text(book_path)
     print("Book Report")
     print(f"There are {word_count(text)} words found in this document")
