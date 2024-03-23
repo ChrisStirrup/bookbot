@@ -23,7 +23,7 @@ def get_book_text(path):
 def word_count(document):
     return len(document.split())
 
-def Letter_frequency(document):
+def letter_frequency(document):
     letter_count = {}
     for d in document.lower():
          if d in letter_count:
@@ -37,7 +37,7 @@ def sort_on(d):
 
 
 def sort_letter_frequency(document):
-    letter_count = Letter_frequency(document)
+    letter_count = letter_frequency(document)
     only_alphabets = {}
     sorted_list = []
     for item in letter_count.items():
