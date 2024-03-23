@@ -1,19 +1,18 @@
-from pathlib import Path
+import argparse
+import os.path
 import sys
 
 def main():
-    shelly =  Path(__file__).parent / "books/frankenstein.txt"
-    history = Path(__file__).parent / "books/History.txt"
+    parser = argparse.ArgumentParser(
+                        prog='BookBot',
+                        description='Parses text files and produces a letter frequency report')
+    parser.add_argument("book_path", help="path to the text file")
+    args = parser.parse_args()
 
-    book_path = input('Please enter which document to analyze. \'shelly\' or \'history\':')
-    if book_path == 'shelly' or book_path == '':
-        book_path = shelly
-    elif book_path == 'history':
-        book_path = history
-    else:
-        sys.exit("Invalid book name. Please type 'shelly' or 'history'.")
-            
-    text = get_book_text(book_path)
+    if not os.path.isfile(args.book_path):
+        sys.exit(f"Error: path '{args.book_path}' does not exist")
+    
+    text = get_book_text(args.book_path)
     print("Book Report")
     print(f"There are {word_count(text)} words found in this document")
     for thing in sort_letter_frequency(text):
