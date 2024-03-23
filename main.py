@@ -1,12 +1,17 @@
+from pathlib import Path
+import sys
+
 def main():
-    history = "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/History.txt"
-    shelly =  "/home/chrisstirrup/workspace/github.com/ChrisStirrup/bookbot/books/frankenstein.txt"
-    book_path = input('Please enter a path to your .txt document: ')
+    shelly =  Path(__file__).parent / "books/frankenstein.txt"
+    history = Path(__file__).parent / "books/History.txt"
+
+    book_path = input('Please enter which document to analyze. \'shelly\' or \'history\':')
     if book_path == 'shelly' or book_path == '':
         book_path = shelly
-    if book_path == 'history':
+    elif book_path == 'history':
         book_path = history
-    
+    else:
+        sys.exit("Invalid book name")
             
     text = get_book_text(book_path)
     print("Book Report")
