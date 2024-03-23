@@ -11,7 +11,7 @@ def main():
     elif book_path == 'history':
         book_path = history
     else:
-        sys.exit("Invalid book name")
+        sys.exit("Invalid book name. Please type 'shelly' or 'history'.")
             
     text = get_book_text(book_path)
     print("Book Report")
